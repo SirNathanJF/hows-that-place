@@ -11,9 +11,9 @@ const typeDefs = gql`
     username: String,
     title: String,
     desc: String,
-    rating: Number,
-    long: Number,
-    lat: Number,
+    rating: Int,
+    long: Int,
+    lat: Int,
   }
   type Query {
     users: [User]

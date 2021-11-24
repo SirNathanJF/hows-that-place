@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 
-const PinSchema = new mongoose.Schema(
+const PinSchema = new Schema(
   {
     username: {
       type: String,
@@ -37,4 +38,4 @@ const PinSchema = new mongoose.Schema(
 
 const Pin = model('Pin', PinSchema);
 
-module.exports = mongoose.model("Pin", PinSchema);
+module.exports = Pin
