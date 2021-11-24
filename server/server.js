@@ -1,6 +1,9 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+const dotenv = require("dotenv");
+const userRoute = require("./routes/users");
+const pinRoute = require("./routes/pins");
 
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
