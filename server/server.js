@@ -34,6 +34,8 @@ app.get("*", (req, res) => {
 });
 
 app.use("/api/pins", pinRoute)
+app.use("/api/users", userRoute)
+
 
 db.once("open", () => {
   app.listen(PORT, () => {
