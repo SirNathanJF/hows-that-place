@@ -4,9 +4,10 @@ import { Room, Star } from "@material-ui/icons";
 import "./app.css";
 import axios from "axios";
 import { format } from "timeago.js";
+import Register from "./components/Register"
 
 function App() {
-  const currentUser = "jordan";
+  const [currentUser, setCurrentUser] = useState(null);
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -54,19 +55,17 @@ function App() {
       desc,
       rating,
       lat: newPlace.lat,
-      long: newPlace.long
+      long: newPlace.long,
     };
 
-    try{
-
-      const res = await axios.post("/api/pins", newPin)
+    try {
+      const res = await axios.post("/api/pins", newPin);
       setPins([...pins, res.data]);
       setNewPlace(null);
-    }catch(err) {
+    } catch (err) {
       console.log(err);
     }
-
-  }
+  };
 
   return (
     <div className="App">
@@ -111,7 +110,7 @@ function App() {
                   <p className="desc">{p.desc}</p>
                   <label>Rating</label>
                   <div className="stars">
-                  {Array(p.rating).fill(<Star className="star" key={p._id} />)}
+                    {Array(p.rating).fill(<Star className="star" />)}
                   </div>
                   <label>Information</label>
                   <span className="username">
@@ -135,11 +134,17 @@ function App() {
             <div>
               <form onSubmit={handleSubmit}>
                 <label>Title</label>
-                <input placeholder="Enter a title" onChange={(e)=>setTitle(e.target.value)} />
+                <input
+                  placeholder="Enter a title"
+                  onChange={(e) => setTitle(e.target.value)}
+                />
                 <label>Review</label>
-                <textarea placeholder="Say something about this place..." onChange={(e)=>setDesc(e.target.value)} />
+                <textarea
+                  placeholder="Say something about this place..."
+                  onChange={(e) => setDesc(e.target.value)}
+                />
                 <label>Rating</label>
-                <select onChange={(e)=>setRating(e.target.value)}>
+                <select onChange={(e) => setRating(e.target.value)}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -153,6 +158,15 @@ function App() {
             </div>
           </Popup>
         )}
+        {currentUser ? (
+          <button className="button logout">Log Out</button>
+        ) : (
+          <div className="buttons">
+            <button className="button login">Login</button>
+            <button className="button register">Register</button>
+          </div>
+        )}
+        <Register />
       </ReactMapGL>
     </div>
   );
