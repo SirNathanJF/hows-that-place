@@ -39,10 +39,10 @@ function App() {
   };
 
   const handleAddClick = (e) => {
-    const [long, lat] = e.lngLat;
+    const [longitude, latitude] = e.lngLat;
     setNewPlace({
-      lat,
-      long,
+      lat: latitude,
+      long: longitude,
     });
   };
 
@@ -55,12 +55,13 @@ function App() {
       rating,
       lat: newPlace.lat,
       long: newPlace.long
-    }
+    };
 
     try{
-      const res = await axios.post("./api/pins", newPin)
+      await axios.post("/api/pins", newPin)
+      window.location.reload(true)
       // setPins([...pins, res.data]);
-      setNewPlace(null);
+      // setNewPlace(null);
     }catch(err) {
       console.log(err);
     }
