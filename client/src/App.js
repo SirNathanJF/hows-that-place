@@ -58,10 +58,10 @@ function App() {
     };
 
     try{
-      await axios.post("/api/pins", newPin)
-      window.location.reload(true)
-      // setPins([...pins, res.data]);
-      // setNewPlace(null);
+
+      const res = await axios.post("/api/pins", newPin)
+      setPins([...pins, res.data]);
+      setNewPlace(null);
     }catch(err) {
       console.log(err);
     }
