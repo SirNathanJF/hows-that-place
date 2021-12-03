@@ -46,6 +46,27 @@ function App() {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newPin = {
+      username: currentUser,
+      title,
+      desc,
+      rating,
+      lat: newPlace.lat,
+      long: newPlace.long
+    }
+
+    try{
+      const res = await axios.post("./api/pins", newPin)
+      setPins([...pins, res.data]);
+      setNewPlace(null);
+    }catch(err) {
+      console.log(err);
+    }
+
+  }
+
   return (
     <div className="App">
       <ReactMapGL
@@ -115,7 +136,7 @@ function App() {
             onClose={() => setNewPlace(null)}
           >
             <div>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <label>Title</label>
                 <input placeholder="Enter a title" onChange={(e)=>setTitle(e.target.value)} />
                 <label>Review</label>
