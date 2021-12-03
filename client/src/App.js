@@ -59,7 +59,7 @@ function App() {
 
     try{
       const res = await axios.post("./api/pins", newPin)
-      setPins([...pins, res.data]);
+      // setPins([...pins, res.data]);
       setNewPlace(null);
     }catch(err) {
       console.log(err);
@@ -110,11 +110,7 @@ function App() {
                   <p className="desc">{p.desc}</p>
                   <label>Rating</label>
                   <div className="stars">
-                    <Star className="star" />
-                    <Star className="star" />
-                    <Star className="star" />
-                    <Star className="star" />
-                    <Star className="star" />
+                  {Array(p.rating).fill(<Star className="star" key={p._id} />)}
                   </div>
                   <label>Information</label>
                   <span className="username">
