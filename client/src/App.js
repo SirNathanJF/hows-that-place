@@ -7,6 +7,7 @@ import {format} from "timeago.js"
 
 function App() {
   const [pins, setPins] = useState([]);
+  const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -27,6 +28,11 @@ function App() {
     getPins();
   }, []);
 
+  const handleMarkerClick = (id, lat, long) => {
+    setCurrentPlaceId(id)
+    setViewport({ ...viewport, latitude: lat, longitude: long });
+  } 
+
   return (
     <div className="App">
       <ReactMapGL
@@ -36,7 +42,7 @@ function App() {
         mapStyle="mapbox://styles/malkieriqueen/ckwmz82wn0enf14o7z0hmj9bl"
       >
         {pins.map((p) => (
-          <>
+          <div key={p._id}>
             <Marker
               latitude={p.lat}
               longitude={p.long}
@@ -45,8 +51,10 @@ function App() {
             >
               <Room
                 style={{ fontSize: 7 * viewport.zoom, color: "slateblue" }}
+                onClick={() => handleMarkerClick(p._id, p.lat, p.long)}
               />
             </Marker>
+            {p._id === currentPlaceId && (
             <Popup
           latitude={p.lat}
           longitude={p.long}
@@ -71,7 +79,8 @@ function App() {
             <span className="date">{format(p.createdAt)}</span>
           </div>
         </Popup>
-          </>
+            )}
+          </div>
         ))}
       </ReactMapGL>
     </div>
