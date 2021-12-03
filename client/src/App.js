@@ -10,6 +10,9 @@ function App() {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [desc, setDesc] = useState(null);
+  const [rating, setRating] = useState(0);
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -102,34 +105,36 @@ function App() {
             )}
           </div>
         ))}
-        {newPlace &&
-        <Popup
-          latitude={newPlace.lat}
-          longitude={newPlace.long}
-          closeButton={true}
-          closeOnClick={false}
-          anchor="left"
-          onClose={() => setNewPlace(null)}
-        >
-          <div>
-            <form>
-            <label>Title</label>
-            <input placeholder="Enter a title"/>
-            <label>Review</label>
-            <textarea placeholder="Say something about this place..." />
-            <label>Rating</label>
-            <select>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <button className="submitButton" type="submit">Add Pin</button>
-            </form>
-          </div>
-        </Popup>
-        }
+        {newPlace && (
+          <Popup
+            latitude={newPlace.lat}
+            longitude={newPlace.long}
+            closeButton={true}
+            closeOnClick={false}
+            anchor="left"
+            onClose={() => setNewPlace(null)}
+          >
+            <div>
+              <form>
+                <label>Title</label>
+                <input placeholder="Enter a title" onChange={(e)=>setTitle(e.target.value)} />
+                <label>Review</label>
+                <textarea placeholder="Say something about this place..." onChange={(e)=>setDesc(e.target.value)} />
+                <label>Rating</label>
+                <select onChange={(e)=>setRating(e.target.value)}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <button className="submitButton" type="submit">
+                  Add Pin
+                </button>
+              </form>
+            </div>
+          </Popup>
+        )}
       </ReactMapGL>
     </div>
   );
