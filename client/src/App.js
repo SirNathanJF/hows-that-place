@@ -51,6 +51,7 @@ function App() {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapStyle="mapbox://styles/malkieriqueen/ckwmz82wn0enf14o7z0hmj9bl"
         onDblClick={handleAddClick}
+        transitionDuration="200"
       >
         {pins.map((p) => (
           <div key={p._id}>
@@ -109,7 +110,25 @@ function App() {
           closeOnClick={false}
           anchor="left"
           onClose={() => setNewPlace(null)}
-        >hello</Popup>
+        >
+          <div>
+            <form>
+            <label>Title</label>
+            <input placeholder="Enter a title"/>
+            <label>Review</label>
+            <textarea placeholder="Say something about this place..." />
+            <label>Rating</label>
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <button className="submitButton" type="submit">Add Pin</button>
+            </form>
+          </div>
+        </Popup>
         }
       </ReactMapGL>
     </div>
