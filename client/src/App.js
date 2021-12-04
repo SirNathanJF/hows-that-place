@@ -110,7 +110,10 @@ function App() {
                 closeButton={true}
                 closeOnClick={false}
                 anchor="left"
+                dynamicPosition={true}
                 onClose={() => setCurrentPlaceId(null)}
+                offsetLeft={30}
+                offsetTop={30}
               >
                 <div className="card">
                   <label>Place</label>
@@ -138,7 +141,10 @@ function App() {
             closeButton={true}
             closeOnClick={false}
             anchor="left"
+            dynamicPosition={true}
             onClose={() => setNewPlace(null)}
+            offsetLeft={30}
+            offsetTop={30}
           >
             <div>
               <form onSubmit={handleSubmit}>
