@@ -9,7 +9,7 @@ import Login from "./components/Login"
 
 function App() {
   const myStorage = window.localStorage;
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(myStorage.getItem("user"));
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -70,6 +70,11 @@ function App() {
       console.log(err);
     }
   };
+
+  const handleLogout = () => {
+    myStorage.removeItem("user");
+    setCurrentUser(null)
+  }
 
   return (
     <div className="App">
@@ -163,7 +168,7 @@ function App() {
           </Popup>
         )}
         {currentUser ? (
-          <button className="button logout">Log Out</button>
+          <button className="button logout" onClick={handleLogout}>Log Out</button>
         ) : (
           <div className="buttons">
             <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
