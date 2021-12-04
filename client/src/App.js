@@ -5,6 +5,7 @@ import "./app.css";
 import axios from "axios";
 import { format } from "timeago.js";
 import Register from "./components/Register"
+import Login from "./components/Login"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -164,11 +165,14 @@ function App() {
           <button className="button logout">Log Out</button>
         ) : (
           <div className="buttons">
-            <button className="button login">Login</button>
-            <button className="button register">Register</button>
+            <button className="button login" onClick={()=>setShowLogin(true)}>Login</button>
+            <button className="button register" onClick={()=>setShowRegister(true)}>Register</button>
           </div>
         )}
-        <Register />
+        {showRegister &&
+        <Register setShowRegister={setShowRegister} />
+        }
+        {showLogin && <Login setShowLogin={setShowLogin} />}
       </ReactMapGL>
     </div>
   );

@@ -3,7 +3,7 @@ import { Cancel, Room } from "@material-ui/icons"
 import { useState, useRef } from "react"
 import axios from "axios";
 
-export default function Register() {
+export default function Register({setShowRegister}) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const nameRef = useRef();
@@ -45,7 +45,7 @@ export default function Register() {
         <span className="failure">Error. Something went wrong!</span>
         }
       </form>
-      <Cancel className="registerCancel" />
+      <Cancel className="registerCancel" onClick={()=>setShowRegister(false)} />
     </div>
   )
 }
