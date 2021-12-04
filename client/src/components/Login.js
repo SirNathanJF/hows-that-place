@@ -1,9 +1,13 @@
 import "./login.css"
 import { Cancel, Room } from "@material-ui/icons"
 import { useState, useRef } from "react"
-import axios from "axios";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
+
 
 export default function Login({setShowLogin, myStorage, setCurrentUser}) {
+  const [loginUser] = useMutation(LOGIN_USER);
   const [error, setError] = useState(false);
   const nameRef = useRef();
   const passwordRef = useRef();
@@ -16,9 +20,8 @@ export default function Login({setShowLogin, myStorage, setCurrentUser}) {
     };
 
     try {
-      const res = await axios.post("./api/users/login", user);
-      myStorage.setItem("user", res.data.username)
-      setCurrentUser(res.data.username)
+      const { data } = await loginUser({ variables: { ...user } });
+      Auth.login(data.login.token);
       setShowLogin(false)
       setError(false);
     } catch(err) {

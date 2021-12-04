@@ -1,9 +1,13 @@
 import "./register.css"
 import { Cancel, Room } from "@material-ui/icons"
 import { useState, useRef } from "react"
-import axios from "axios";
+import { useMutation } from "@apollo/client";
+
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 export default function Register({setShowRegister}) {
+  const [addUser] = useMutation(ADD_USER);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const nameRef = useRef();
@@ -19,7 +23,8 @@ export default function Register({setShowRegister}) {
     };
 
     try {
-      await axios.post("./api/users/register", newUser);
+      const { data } = await addUser({ variables: { ...newUser } });
+      Auth.login(data.addUser.token);
       setError(false);
       setSuccess(true);
     } catch(err) {
