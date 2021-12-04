@@ -14,6 +14,8 @@ function App() {
   const [title, setTitle] = useState(null);
   const [desc, setDesc] = useState(null);
   const [rating, setRating] = useState(0);
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
