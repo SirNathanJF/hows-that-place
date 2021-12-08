@@ -14,6 +14,9 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+// eslint-disable-next-line no-restricted-globals
+window.onresize = function(){ location.reload(); }
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -139,7 +142,6 @@ function App() {
                 longitude={p.long}
                 closeButton={true}
                 closeOnClick={false}
-                anchor="left"
                 dynamicPosition={true}
                 onClose={() => setCurrentPlaceId(null)}
                 offsetLeft={30}
