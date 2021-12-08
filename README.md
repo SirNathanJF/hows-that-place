@@ -67,6 +67,7 @@ A chat/mail system for users to contact each other directly
 - GraphQL
 - ReactJS
 - React Map Gl
+- Stripe
 ```
 
 ## Questions
