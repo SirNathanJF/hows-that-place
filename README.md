@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Fara
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img align="center" src="./assets/FaraBanner.jpg">
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This is a MERN stack application that allows a user to register an account, login, and click a map to review a place that they have been. They can also view other users pins and reviews in order to help decide where to go!
 
-### `npm start`
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [Visual Example and Deployed Application](#visual-example)
+- [Installation & Usage](#installation)
+- [My Inspiration](#inspiration)
+- [Future Development](#future-development)
+- [Technologies Used](#technologies)
+- [Resources](#resources)
+- [Questions](#questions)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Visual Example 
 
-### `npm test`
+<img align="center" src="./assets/FaraVisualExample.png" width="750px">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Live URL: https://fara-travel.herokuapp.com/
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Fork the repo
+2. Clone the repo from your github
+3. Install NPM packages
+  ```npm install```
+5. Make sure to create a .env file using the .env.EXAMPLE as the boiler plate
+6. ```npm run develop``` will start the server. Please visit localhost:3000 in order to view the webpage/game visually. The GraphQL Playground and api can be accesed via localhost:3001. Please feel free to change the port number if this would conflict with any personal items running locally on your machine. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Inspiration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+My inspiration was from my wife! We both love to travel, and having a nice, clean, and simple to use application where we could see where other people have gone and their reviews would be very nice! I decided to put my development skills to the test and make this application solo. 
 
-### `npm run eject`
+## Future Development
+```
+A user page that displays all pins they have placed
+A way to comment on someone elses pins and ask questions, or let them know their review was helpful
+A chat/mail system for users to contact each other directly
+```
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<div style='margin: 1em 0;'>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" width="4%" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" width="4%" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="4%"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJs" width="4%" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" alt="express" width="4%" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="ReactJS" width="4%" />
+<img src="https://pbs.twimg.com/profile_images/1422297335531376654/f0wnwzb-_400x400.jpg" alt="Stripe" width="4%" />
+<img src="https://avatars.githubusercontent.com/u/17189275?v=4" alt="apollo-server" width="4%" />
+<img src="https://miro.medium.com/max/400/1*nP2C50GK4_-ly_R_mq3juQ.png" alt="graphql" width="4%" />
+<img src="https://cdn.sanity.io/images/zlybple6/production/ae674b237161e285b1a53caa805ea6d8ee0b0098-896x454.png" alt="reactmapgl" width="4%" />
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Resources
+```
+- MongoDB
+- Express
+- ReactJS
+- NodeJS
+- Javascript/JSX
+- CSS
+- Apollo Server
+- GraphQL
+- ReactJS
+- React Map Gl
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Questions
+Any questions please contact me at <nathanflessner1@gmail.com> or at my [Github](https://github.com/SirNathanJF)
