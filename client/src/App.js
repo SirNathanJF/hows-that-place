@@ -58,6 +58,7 @@ function App() {
     zoom: 4,
   });
 
+// useEffect to fetch pins on page load
   useEffect(() => {
     const getPins = async () => {
       try {
